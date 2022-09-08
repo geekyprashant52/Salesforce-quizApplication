@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Selected_Options__c</fullName>
+    <externalId>false</externalId>
+    <label>Selected Options</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Option_A</fullName>
+                <default>false</default>
+                <label>Option_A</label>
+            </value>
+            <value>
+                <fullName>Option_B</fullName>
+                <default>false</default>
+                <label>Option_B</label>
+            </value>
+            <value>
+                <fullName>Option_C</fullName>
+                <default>false</default>
+                <label>Option_C</label>
+            </value>
+            <value>
+                <fullName>Option_D</fullName>
+                <default>false</default>
+                <label>Option_D</label>
+            </value>
+            <value>
+                <fullName>Option_E</fullName>
+                <default>false</default>
+                <label>Option_E</label>
+            </value>
+            <value>
+                <fullName>Option_F</fullName>
+                <default>false</default>
+                <label>Option_F</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

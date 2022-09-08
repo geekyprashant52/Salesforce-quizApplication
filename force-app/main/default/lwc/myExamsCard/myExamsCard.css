@@ -1,0 +1,26 @@
+
+.cardWrapper
+{
+    color: cornflowerblue;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: all 0.5s;
+    padding: 10px;
+}
+.cardWrapper:hover
+{
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px cornflowerblue;
+}
+
+.cardWrapper h1
+{
+    font-size: 1.6rem;
+}
+
+.cardWrapper h2
+{
+    font-size: 1rem;
+}

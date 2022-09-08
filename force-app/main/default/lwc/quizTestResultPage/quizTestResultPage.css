@@ -1,0 +1,24 @@
+
+
+.headingWrapper
+{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.logoWrapper {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.logoWrapper img {
+    width: 100%;
+}
+
+h1
+{
+    font-weight: bolder;
+}
+

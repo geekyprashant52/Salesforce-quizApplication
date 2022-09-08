@@ -1,0 +1,102 @@
+<template>
+    <lightning-card title="Create question here">
+        <div class="slds-p-around_small">
+            <lightning-textarea name="question" required label="Question" 
+                placeholder="type here..." class="questionInput" value={question} onchange={handleQuestionChange}></lightning-textarea>
+            <lightning-textarea name="description" placeholder="type here..." 
+                label="Description/Note" value={description} onchange={handleDescriptionChange}></lightning-textarea>
+        </div>
+        <lightning-card title="Options">
+            <lightning-layout>
+                <lightning-layout-item size="6" medium-device-size="3" padding="around-small">
+                        <template if:true={isOptionsEditable}>
+                            <lightning-combobox
+                                name="Select options count"
+                                label="Select options count"
+                                value={optionCount}
+                                placeholder="--Select--"
+                                options={options}
+                                onchange={handleOptionCountChange} >
+                            </lightning-combobox>   
+                        </template> 
+                </lightning-layout-item>
+                <template if:true={showType}>
+                    <lightning-layout-item size="6" medium-device-size="3" padding="around-small">
+                            <lightning-combobox
+                                name="Select options type"
+                                label="Select options type"
+                                value={optionType}
+                                placeholder="--Select--"
+                                options={optionsforType}
+                                onchange={handleOptionTypeChange} 
+                                class="inputTypeCombobox"
+                                >
+                            </lightning-combobox>    
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+            <div class="slds-p-around_small">
+
+                <template if:true={isOptionsEditable}>
+                    <template if:true={dummyArray} for:each={dummyArray} for:item="item">
+                        <lightning-input class="optionsInput slds-m-bottom_x-small" key={item.value} name={item.value}  type="text" label={item.value} value={item.label} required onchange={handleOptionInputChange}></lightning-input>
+                    </template>
+                </template>
+                <template if:false={isOptionsEditable}>
+                    <div class="slds-p-around_small">
+                        <template if:true={isAnswerError}>
+                            <p style="color: red;">{errorMessage}</p>
+                        </template>
+                    </div>
+                    <template if:true={isOptionSingle}>
+                        <lightning-radio-group name="radioGroup"
+                          label="Please select answer"
+                          options={radioOptions}
+                          value={radioValue}
+                          type="radio"
+                          onchange={handleRadioChange}
+                          class="slds-m-bottom_xx-small"
+                          >
+                        </lightning-radio-group>
+                    </template>
+                    <template if:false={isOptionSingle}>
+                        <lightning-checkbox-group name="Checkbox Group"
+                              label="Please select answers(choose more than 2)"
+                              options={checkboxOptions}
+                              value={checkboxValue}
+                              onchange={handleCheckboxChange}
+                              class="slds-m-bottom_xx-small"
+                              >
+                            </lightning-checkbox-group>
+                    </template>
+                </template>
+
+                
+            </div>
+            <div class="slds-p-around_small">
+                <template if:true={isInputError}>
+                    <p style="color: red;">Please enter all options values!</p>
+                </template>
+            </div>
+            <div class="slds-p-around_small">
+                <template if:true={optionCount}>
+                    <template if:true={isOptionsEditable}>
+                        <lightning-button variant="brand-outline" label="Save options"
+                            icon-name="utility:save" onclick={handleOptionSave}></lightning-button>
+                    </template>
+                    <template if:false={isOptionsEditable}>
+                        <lightning-button variant="brand-outline" label="Edit options"
+                            icon-name="utility:edit" onclick={handleOptionEdit}></lightning-button>
+                    </template>
+                    <template if:false={isOptionsEditable}>
+                        <div class="slds-m-top_small">
+                            <lightning-button variant="brand" label="Save question"
+                                icon-name="utility:save" onclick={handleQuestionSave}>
+                            </lightning-button>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </lightning-card>
+    </lightning-card>
+</template>

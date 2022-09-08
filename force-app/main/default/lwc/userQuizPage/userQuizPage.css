@@ -1,0 +1,52 @@
+
+.welcomeTextWrapper 
+{
+    margin-bottom: 2rem;
+}
+.welcomeTextWrapper h1
+{
+    font-size: 3rem;
+    font-weight: 500;
+}
+.welcomeTextWrapper h2
+{
+    font-size: 1.2rem;
+}
+.testNameWrapper1
+{
+    color: cornflowerblue;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.5s;
+}
+.testNameWrapper1:hover
+{
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px cornflowerblue;
+}
+.testNameWrapper1 h2
+{
+    padding: 1rem;
+    font-weight: bolder;
+    font-size: 1.6rem;
+}
+
+
+.logoWrapper
+{
+    width: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.logoWrapper img{
+    width: 100%;
+}
+
+.testNameWrapper h1
+{
+    font-weight: bold;
+}

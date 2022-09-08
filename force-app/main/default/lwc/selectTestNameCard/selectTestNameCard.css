@@ -1,0 +1,30 @@
+.testNameWrapper1 {
+    color: cornflowerblue;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.5s;
+}
+
+.testNameWrapper1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px cornflowerblue;
+}
+
+.testNameWrapper1 h2 {
+    padding: 1rem;
+    font-weight: bolder;
+    font-size: 1.6rem;
+}
+
+.testNameWrapper1 div
+{
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+.testNameWrapper1 div h3 {
+    font-weight: bolder;
+    font-size: 1.2rem;
+}

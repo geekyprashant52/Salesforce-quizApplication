@@ -1,0 +1,126 @@
+<template>
+
+    <template if:true={ownerName}>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" medium-device-size="12" padding="around_small">
+                <div class="slds-m-bottom_large slds-text-align_center headingWrapper">
+                    <h1>Test result page</h1>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" medium-device-size="12" padding="around_small">
+                <div class="slds-float_right logoWrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/1280px-Salesforce.com_logo.svg.png" alt="logo">
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+
+       
+
+        
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" medium-device-size="2" padding="bottom_x-small">
+                <div class="slds-float_right">
+                    <h1>Test Taker Name: </h1>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" medium-device-size="10" padding="bottom_x-small">
+                <div class="slds-float_left slds-p-left_large">
+                    <h2>{ownerName}</h2>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" medium-device-size="2" padding="bottom_x-small">
+                <div class="slds-float_right">
+                    <h1>Exam Name: </h1>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" medium-device-size="10" padding="bottom_x-small">
+                <div class="slds-float_left slds-p-left_large" >
+                    <h2>{testName}</h2>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" medium-device-size="2" padding="bottom_x-small">
+                <div class="slds-float_right">
+                    <h1>Date completed: </h1>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" medium-device-size="10" padding="bottom_x-small">
+                <div class="slds-float_left slds-p-left_large">
+                    <h2>{testDate}</h2>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" medium-device-size="2" padding="bottom_x-small">
+                <div class="slds-float_right">
+                    <h1>Time taken: </h1>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" medium-device-size="10" padding="bottom_x-small">
+                <div class="slds-float_left slds-p-left_large">
+                    <h2>{timeTaken} Minutes of total {totalTime} Minutes</h2>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" medium-device-size="2" padding="bottom_x-small">
+                <div class="slds-float_right">
+                    <h1>Score: </h1>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" medium-device-size="10" padding="bottom_x-small">
+                <div class="slds-float_left slds-p-left_large">
+                    <h2>{score}%</h2>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <template if:true={datatableData}>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" medium-device-size="10" padding="around_xx-small">
+                    <div class="slds-m-top_xx-large slds-p-around_medium">
+                        <lightning-datatable
+                            key-field="id"
+                            data={datatableData}
+                            columns={datatableColumns}>
+                        </lightning-datatable>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+        <template if:true={datatableError}>
+            <h1>{datatableError}</h1>
+        </template>
+
+        <div class="slds-m-top_large">
+            <lightning-button class="slds-p-around_small" label="Close Result" 
+                variant="brand" onclick={handleCloseResult} 
+                icon-name="utility:close">
+            </lightning-button>
+
+        </div>
+        
+    </template>
+    <template if:true={isDataLoading}>
+        <div class="exampleHolder">
+            <lightning-spinner variant="brand" alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>
+
+    <template if:false={ownerName}>
+        <div >
+            <h1 style="font-size: 2rem">No data found!</h1>
+        </div>
+    </template>
+    
+</template>

@@ -1,0 +1,30 @@
+<template>
+    <div class="headingWrapper slds-text-align_center">
+        <h1>My Exams</h1>
+    </div>
+    <template if:true={quizUsersTestData}>
+        <lightning-layout multiple-rows>
+            <template if:true={quizUsersTestData} for:each={quizUsersTestData} for:item="quiz" for:index="index">
+                <lightning-layout-item key={quiz.Test_Time__c} size="12" medium-device-size="6" padding="around-small">
+                    <c-my-exams-card myresultcard-data = {quiz}></c-my-exams-card>
+                </lightning-layout-item>         
+            </template>
+            
+        </lightning-layout>
+    </template>
+    
+
+    <template if:false={quizUsersTestData}>
+        <div>
+            <h1 style="font-size: 1.3rem">Sorry, No data found!</h1>
+        </div>
+    </template>
+
+    <template if:true={isDataLoading}>
+        <div class="exampleHolder">
+            <lightning-spinner variant="brand" alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>
+
+    
+</template>
